@@ -1,79 +1,101 @@
-This project was bootstrapped with [Create Contentful App](https://github.com/contentful/create-contentful-app).
+# Dual List Management Plugin
 
-## How to use
+A Contentful field extension (plugin) that provides a user-friendly interface to select and reorder multiple values using a dual-list UI. This plugin leverages [react-dual-listbox](https://github.com/jakezatecky/react-dual-listbox) for a streamlined selection experience.
 
-Execute create-contentful-app with npm, npx or yarn to bootstrap the example:
+![Dual List Management Example](https://via.placeholder.com/600x300?text=Dual+List+Example+Screenshot)
 
-```bash
-# npx
-npx create-contentful-app --example vite-react
+## Table of Contents
 
-# npm
-npm init contentful-app --example vite-react
+-   [Overview](#overview)
+-   [Features](#features)
+-   [Installation & Setup](#installation--setup)
+-   [Configuration](#configuration)
+-   [Local Development](#local-development)
+-   [Testing](#testing)
+-   [Contributing](#contributing)
+-   [License](#license)
 
-# Yarn
-yarn create contentful-app --example vite-react
+## Overview
+
+The **Dual List Management Plugin** makes it easy for Contentful editors to:
+
+-   Pick multiple options from a predefined list
+-   Filter options (optional)
+-   Reorder selected options
+-   Clear selections with a single click
+
+It’s suitable for scenarios like:
+
+-   Selecting multiple categories, tags, or labels
+-   Managing curated lists of items
+-   Defining product variations or any other multi-select use case
+
+## Features
+
+-   **Dual List UI**: Uses `react-dual-listbox` for a clear, two-panel interface
+-   **Optional Filtering**: Enable or disable search/filter functionality via instance parameters
+-   **Reordering**: Move selected items up or down (if configured)
+-   **Clear Selections**: One-click action to remove all selected items
+
+## Installation & Setup
+
+1. **Install dependencies** in your local environment:
+
+    ```bash
+    npm install
+    ```
+
+2. Create an AppDefinition in your Contentful organization:
+
+-   Set the App URL to your local or production URL (e.g., http://localhost:3000).
+-   Add an entry field location for the plugin (e.g., for a JSON, Short Text, or other field).
+
+3. Configure instance parameters such as enableFiltering or showOrderButtons in your Contentful App settings.
+
+## Configuration
+
+| Parameter        | Type    | Description                                                          |
+| ---------------- | ------- | -------------------------------------------------------------------- |
+| enableFiltering  | boolean | Toggles whether to display a text input to filter the available list |
+| showOrderButtons | boolean | Toggles whether to display up/down arrows for reordering selections  |
+
+## Local Development
+
+To run the plugin locally:
+
+```
+# Install dependencies
+yarn install
+
+# Start the development server
+yarn start
 ```
 
-## Available Scripts
+By default, the plugin will run on http://localhost:3000.
 
-In the project directory, you can run:
+If you’ve configured your Contentful AppDefinition to point to that URL, you’ll see the plugin in the Contentful web app when editing an entry with the assigned field type.
 
-#### `npm start`
+Testing
+This project uses Vitest and React Testing Library.
 
-Creates or updates your app definition in Contentful, and runs the app in development mode.
-Open your app to view it in the browser.
+# Run the test suite
 
-The page will reload if you make edits.
-You will also see any lint errors in the console.
-
-#### `npm run build`
-
-Builds the app for production to the `dist` folder.
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.
-Your app is ready to be deployed!
-
-#### `npm run upload`
-
-Uploads the `dist` folder to Contentful and creates a bundle that is automatically activated.
-The command guides you through the deployment process and asks for all required arguments.
-Read [here](https://www.contentful.com/developers/docs/extensibility/app-framework/create-contentful-app/#deploy-with-contentful) for more information about the deployment process.
-
-#### `npm run upload-ci`
-
-Similar to `npm run upload` it will upload your app to contentful and activate it. The only difference is  
-that with this command all required arguments are read from the environment variables, for example when you add
-the upload command to your CI pipeline.
-
-For this command to work, the following environment variables must be set:
-
-- `CONTENTFUL_ORG_ID` - The ID of your organization
-- `CONTENTFUL_APP_DEF_ID` - The ID of the app to which to add the bundle
-- `CONTENTFUL_ACCESS_TOKEN` - A personal [access token](https://www.contentful.com/developers/docs/references/content-management-api/#/reference/personal-access-tokens)
-
-## Libraries to use
-
-To make your app look and feel like Contentful use the following libraries:
-
-- [Forma 36](https://f36.contentful.com/) – Contentful's design system
-- [Contentful Field Editors](https://www.contentful.com/developers/docs/extensibility/field-editors/) – Contentful's field editor React components
-
-## Using the `contentful-management` SDK
-
-In the default create contentful app output, a contentful management client is
-passed into each location. This can be used to interact with Contentful's
-management API. For example
-
-```js
-// Use the client
-cma.locale.getMany({}).then((locales) => console.log(locales));
+```
+npm run test
 ```
 
-Visit the [`contentful-management` documentation](https://www.contentful.com/developers/docs/extensibility/app-framework/sdk/#using-the-contentful-management-library)
-to find out more.
+Check out Field.spec.tsx for an example test verifying the plugin’s basic functionality.
 
-## Learn More
+## Contributing
 
-[Read more](https://www.contentful.com/developers/docs/extensibility/app-framework/create-contentful-app/) and check out the video on how to use the CLI.
+If you’d like to contribute:
+
+1. Fork this repository.
+2. Create a new branch for your feature or bug fix.
+3. Submit a pull request once you’re done.
+
+We welcome improvements to the UI, performance enhancements, or additional feature requests.
+
+## License
+
+MIT - Feel free to modify and distribute this plugin as needed. See the LICENSE file for more details.

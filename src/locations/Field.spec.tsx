@@ -1,18 +1,38 @@
 import { render } from "@testing-library/react";
-import { describe, expect, it, vi } from "vitest";
-import { mockCma, mockSdk } from "../../test/mocks";
+import { describe, it, expect, vi } from "vitest";
 import Field from "./Field";
 
-// Mock Contentful hooks to return our test SDK & CMA
-vi.mock("@contentful/react-apps-toolkit", () => ({
-    useSDK: () => mockSdk,
-    useCMA: () => mockCma
+vi.mock("react-dual-listbox/lib/react-dual-listbox.css", () => ({}));
+vi.mock("@fortawesome/fontawesome-free/css/all.min.css", () => ({}));
+
+vi.mock("react-dual-listbox", () => ({
+    __esModule: true,
+    default: () => <div>Mock DualListBox</div>
 }));
 
-describe("Field component", () => {
-    it("Component text exists", () => {
-        const { getByText } = render(<Field />);
+vi.mock("@contentful/react-apps-toolkit", () => {
+    const sdk = {
+        window: { startAutoResizer: vi.fn() },
+        field: {
+            getValue: vi.fn().mockReturnValue([]),
+            setValue: vi.fn().mockResolvedValue(undefined)
+        },
+        parameters: {
+            instance: {
+                enableFiltering: false,
+                showOrderButtons: false
+            }
+        }
+    };
+    return {
+        useSDK: () => sdk,
+        useCMA: () => ({})
+    };
+});
 
-        expect(getByText("Hello Entry Field Component (AppId: test-app)")).toBeTruthy();
+describe("Field component", () => {
+    it("renders the Clear Selection button", () => {
+        const { getByText } = render(<Field />);
+        expect(getByText("Clear Selection")).toBeTruthy();
     });
 });
