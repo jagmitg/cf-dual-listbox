@@ -30,7 +30,7 @@ It’s suitable for scenarios like:
 -   Managing curated lists of items
 -   Defining product variations or any other multi-select use case
 
-![Alt text](dual-list.png?raw=true "Title")
+![Alt text](refs/heads/main/dual-list.png?raw=true "Title")
 
 ## Features
 
