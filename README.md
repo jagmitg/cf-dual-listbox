@@ -2,7 +2,8 @@
 
 A Contentful field extension (plugin) that provides a user-friendly interface to select and reorder multiple values using a dual-list UI. This plugin leverages [react-dual-listbox](https://github.com/jakezatecky/react-dual-listbox) for a streamlined selection experience.
 
-![Dual List Management Example](https://via.placeholder.com/600x300?text=Dual+List+Example+Screenshot)
+<img width="960" alt="dual-list" src="https://github.com/user-attachments/assets/71f6d696-7f9d-4000-8c49-8b1af38942d0" />
+
 
 ## Table of Contents
 
