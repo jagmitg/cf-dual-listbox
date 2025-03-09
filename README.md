@@ -30,6 +30,8 @@ It’s suitable for scenarios like:
 -   Managing curated lists of items
 -   Defining product variations or any other multi-select use case
 
+![Alt text](dual-list.png?raw=true "Title")
+
 ## Features
 
 -   **Dual List UI**: Uses `react-dual-listbox` for a clear, two-panel interface
@@ -51,6 +53,8 @@ It’s suitable for scenarios like:
 -   Add an entry field location for the plugin (e.g., for a JSON, Short Text, or other field).
 
 3. Configure instance parameters such as enableFiltering or showOrderButtons in your Contentful App settings.
+
+[![Install to Contentful](https://www.ctfstatic.com/button/install-small.svg)](https://app.contentful.com/deeplink?link=apps&id=1lL6R4999sdomP5JbS9OdT)
 
 ## Configuration
 
