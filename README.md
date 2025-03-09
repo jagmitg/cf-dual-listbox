@@ -31,8 +31,6 @@ It’s suitable for scenarios like:
 -   Managing curated lists of items
 -   Defining product variations or any other multi-select use case
 
-![Alt text](refs/heads/main/dual-list.png?raw=true "Title")
-
 ## Features
 
 -   **Dual List UI**: Uses `react-dual-listbox` for a clear, two-panel interface
@@ -63,6 +61,9 @@ It’s suitable for scenarios like:
 | ---------------- | ------- | -------------------------------------------------------------------- |
 | enableFiltering  | boolean | Toggles whether to display a text input to filter the available list |
 | showOrderButtons | boolean | Toggles whether to display up/down arrows for reordering selections  |
+
+<img width="871" alt="filtering" src="https://github.com/user-attachments/assets/128e5a9f-fef2-46cd-9aea-7637125ee28b" />
+
 
 ## Local Development
 
